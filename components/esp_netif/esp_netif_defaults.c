@@ -41,6 +41,8 @@ const esp_netif_inherent_config_t _g_esp_netif_inherent_slip_config = ESP_NETIF_
 
 const esp_netif_inherent_config_t _g_esp_netif_inherent_openthread_config = ESP_NETIF_INHERENT_DEFAULT_OPENTHREAD();
 
+const esp_netif_inherent_config_t _g_esp_netif_inherent_tap_config = ESP_NETIF_INHERENT_DEFAULT_TAP();
+
 const esp_netif_ip_info_t _g_esp_netif_soft_ap_ip = {
         .ip = { .addr = ESP_IP4TOADDR( 192, 168, 4, 1) },
         .gw = { .addr = ESP_IP4TOADDR( 192, 168, 4, 1) },

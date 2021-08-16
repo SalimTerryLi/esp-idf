@@ -19,6 +19,9 @@ list(APPEND srcs
     "lwip/esp_netif_lwip_ppp.c")
 endif()
 
+list(APPEND srcs
+    "lwip/esp_netif_lwip_tap.c")
+
 if(CONFIG_LWIP_NETIF_LOOPBACK)
 list(APPEND srcs
     "loopback/esp_netif_loopback.c")

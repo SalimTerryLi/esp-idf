@@ -20,6 +20,7 @@
 
 #include "netif/wlanif.h"
 #include "netif/ethernetif.h"
+#include "esp_netif_lwip_tap.h"
 #if CONFIG_OPENTHREAD_ENABLED
 #include "netif/openthreadif.h"
 #endif
@@ -58,11 +59,18 @@ static const struct esp_netif_netstack_config s_netif_config_ppp = {
                 }
         }
 };
+static const struct esp_netif_netstack_config s_tap_netif_config = {
+        .lwip = {
+            .init_fn = tapif_init,
+            .input_fn = tapif_input,
+        }
+};
 
 const esp_netif_netstack_config_t *_g_esp_netif_netstack_default_eth      = &s_eth_netif_config;
 const esp_netif_netstack_config_t *_g_esp_netif_netstack_default_wifi_sta = &s_wifi_netif_config_sta;
 const esp_netif_netstack_config_t *_g_esp_netif_netstack_default_wifi_ap  = &s_wifi_netif_config_ap;
 const esp_netif_netstack_config_t *_g_esp_netif_netstack_default_ppp      = &s_netif_config_ppp;
+const esp_netif_netstack_config_t *_g_esp_netif_netstack_default_tap      = &s_tap_netif_config;
 
 #if CONFIG_OPENTHREAD_ENABLED
 static const struct esp_netif_netstack_config s_netif_config_openthread = {
